@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author maiaf
+ *
+ */
 public class Usuario {
 
 	private String login;
