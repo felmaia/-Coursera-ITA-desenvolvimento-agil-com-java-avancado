@@ -1,0 +1,5 @@
+<dataset>
+	<USUARIO LOGIN="almeida" NOME="Jaqueline Almeida" EMAIL="almeida@email.com.br" SENHA ="789" PONTOS="9" />
+	<USUARIO LOGIN="maia" NOME="Felipe" EMAIL="felipe@email.com.br" SENHA="123" PONTOS="10" />
+	<USUARIO LOGIN="santos" NOME="Andre Santos" EMAIL="andre@email.com.br" SENHA ="456" PONTOS="5" />
+</dataset>
