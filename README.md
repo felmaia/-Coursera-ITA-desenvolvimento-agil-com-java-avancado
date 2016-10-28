@@ -1,6 +1,19 @@
-# Link do curso: http://www.coursera.org/learn/desenvolvimento-agil-com-java-avancado/
+# Curso de Java Avançado do ITA Coursera
 
-# Branch do projeto de conclusão: GamificationSemana3
+## Tecnologias estudadas:
+ - Servlets
+ - JDBC
+ - Generics
+ - Reflection
+ - Lambda (Java 8)
+ - Testes funcionais com Selenium
+ - Testes de classes que acessam o banco com DBUnit
+
+## Link do curso: 
+ - http://www.coursera.org/learn/desenvolvimento-agil-com-java-avancado/
+
+## Branch do projeto de conclusão
+ - GamificationSemana3
 
 # Descrição do projeto de conclusão:
 
