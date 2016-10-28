@@ -7,7 +7,7 @@
  - Reflection
  - Lambda (Java 8)
  - Testes funcionais com Selenium
- - Testes de classes que acessam o banco com DBUnit
+ - Testes de classes que fazem acesso ao banco de dados com DBUnit
 
 ## Link do curso: 
  - http://www.coursera.org/learn/desenvolvimento-agil-com-java-avancado/
