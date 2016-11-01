@@ -13,7 +13,7 @@
  - http://www.coursera.org/learn/desenvolvimento-agil-com-java-avancado/
 
 ## Branch do projeto de conclusão
- - GamificationSemana3
+ - [GamificationSemana4](https://github.com/felmaia/Coursera-ITA-desenvolvimento-agil-com-java-avancado/tree/GamificationSemana4)
 
 # Descrição do projeto de conclusão:
 
