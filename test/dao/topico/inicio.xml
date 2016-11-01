@@ -1,0 +1,6 @@
+<dataset reset_sequences="topico_id_topico_seq">
+	<TOPICO ID_TOPICO="1" LOGIN="maia" TITULO="Titulo Topico 1" CONTEUDO="Este é o tópico 1." />
+	<TOPICO ID_TOPICO="2" LOGIN="santos" TITULO="Titulo Topico 2" CONTEUDO="Este é o tópico 2." />
+	<USUARIO LOGIN="maia" NOME="Felipe" EMAIL="felipe@email.com.br" SENHA="123" PONTOS="10" />
+	<USUARIO LOGIN="santos" NOME="Andre Santos" EMAIL="andre@email.com.br" SENHA ="456" PONTOS="5" />
+</dataset>

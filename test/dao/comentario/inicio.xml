@@ -1,0 +1,6 @@
+<dataset reset_sequences="comentario_id_comentario_seq">
+	<COMENTARIO ID_COMENTARIO="1" LOGIN="maia" ID_TOPICO="1" COMENTARIO="Primeiro Comentario do Topico 1" />
+	<COMENTARIO ID_COMENTARIO="2" LOGIN="maia" ID_TOPICO="1" COMENTARIO="Segundo Comentario do Topico 1" />
+	<TOPICO ID_TOPICO="1" LOGIN="maia" TITULO="Titulo Topico 1" CONTEUDO="Este é o tópico 1." />
+	<USUARIO LOGIN="maia" NOME="Felipe" EMAIL="felipe@email.com.br" SENHA="123" PONTOS="10" />
+</dataset>
