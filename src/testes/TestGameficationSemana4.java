@@ -21,6 +21,7 @@ public class TestGameficationSemana4 {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
+  private String usuarioLogin  = null;
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
@@ -28,6 +29,7 @@ public class TestGameficationSemana4 {
     driver = new FirefoxDriver();
     baseUrl = "http://localhost:8080";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    usuarioLogin = "doria"+ThreadLocalRandom.current().nextInt(1, 100 + 1);
   }
 
   @Test
@@ -38,21 +40,20 @@ public class TestGameficationSemana4 {
     driver.findElement(By.id("email")).clear();
     driver.findElement(By.id("email")).sendKeys("rafael@email.com");
     driver.findElement(By.id("login")).clear();
-    String login = "doria"+ThreadLocalRandom.current().nextInt(1, 100 + 1);
-    driver.findElement(By.id("login")).sendKeys(login);
+    driver.findElement(By.id("login")).sendKeys(usuarioLogin);
     driver.findElement(By.id("senha")).clear();
     driver.findElement(By.id("senha")).sendKeys("123");
     driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-    Thread.sleep(1000);
+    Thread.sleep(2000);
     assertEquals(driver.findElement(By.cssSelector("h3")).getText(), "Login");
     assertEquals(driver.findElement(By.cssSelector("div.alert.alert-success")).getText(), "Successo! Cadastro realizado.");
   }
   
-  @Test
+  @Test(dependsOnMethods="testNovoCadastro")
   public void testLogin() throws Exception {
 	driver.get(baseUrl + "/GamificationSemana4/");
     driver.findElement(By.name("login")).clear();
-    driver.findElement(By.name("login")).sendKeys("doria");
+    driver.findElement(By.name("login")).sendKeys(usuarioLogin);
     driver.findElement(By.name("senha")).clear();
     driver.findElement(By.name("senha")).sendKeys("123");
     driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
