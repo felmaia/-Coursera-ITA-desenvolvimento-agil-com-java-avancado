@@ -50,15 +50,18 @@ public class TestGameficationSemana4 {
   
   @Test
   public void testLogin() throws Exception {
-    login();
+	driver.get(baseUrl + "/GamificationSemana4/");
+    driver.findElement(By.name("login")).clear();
+    driver.findElement(By.name("login")).sendKeys("doria");
+    driver.findElement(By.name("senha")).clear();
+    driver.findElement(By.name("senha")).sendKeys("123");
+    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
     Thread.sleep(2000);
     assertEquals(driver.findElement(By.cssSelector("h3")).getText(), "Tópicos");
   }
   
-  @Test
+  @Test(dependsOnMethods="testLogin")
   public void testNovoTopico() throws Exception {
-    login();
-    Thread.sleep(2000);
     driver.get(baseUrl + "/GamificationSemana4/topicoController?acao=listar");
     driver.findElement(By.linkText("Novo Tópico")).click();
     driver.findElement(By.id("titulo")).clear();
@@ -71,15 +74,6 @@ public class TestGameficationSemana4 {
     assertEquals(driver.findElement(By.cssSelector("div.alert.alert-success")).getText(), "Successo! Novo tópico criado.");
   }
 
-  private void login() {
-	driver.get(baseUrl + "/GamificationSemana4/");
-    driver.findElement(By.name("login")).clear();
-    driver.findElement(By.name("login")).sendKeys("doria");
-    driver.findElement(By.name("senha")).clear();
-    driver.findElement(By.name("senha")).sendKeys("123");
-    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
-  }
-  
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
     driver.quit();
