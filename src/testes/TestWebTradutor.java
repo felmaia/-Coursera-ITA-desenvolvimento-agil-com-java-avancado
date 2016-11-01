@@ -23,14 +23,15 @@ public class TestWebTradutor {
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
+	System.setProperty("webdriver.gecko.driver", "C:\\Java\\Tools\\GeckoDriver-v0.10.0\\geckodriver.exe");
     driver = new FirefoxDriver();
-    baseUrl = "http://localhost:8080/";
+    baseUrl = "http://localhost:8080";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
   public void testTraducaoLivro() throws Exception {
-    driver.get(baseUrl + "/WebTradutor/");
+    driver.get(baseUrl + "/WebTradutorSemana2/");
     driver.findElement(By.name("palavra")).clear();
     driver.findElement(By.name("palavra")).sendKeys("livro");
     driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
@@ -39,7 +40,7 @@ public class TestWebTradutor {
   
   @Test
   public void testTraducaoHouse() throws Exception {
-    driver.get(baseUrl + "/WebTradutor/");
+    driver.get(baseUrl + "/WebTradutorSemana2/");
     driver.findElement(By.name("palavra")).clear();
     driver.findElement(By.name("palavra")).sendKeys("house");
     driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
@@ -48,7 +49,7 @@ public class TestWebTradutor {
   
   @Test
   public void testTraducaoPalavraInexistente() throws Exception {
-    driver.get(baseUrl + "/WebTradutor/");
+    driver.get(baseUrl + "/WebTradutorSemana2/");
     driver.findElement(By.name("palavra")).clear();
     driver.findElement(By.name("palavra")).sendKeys("teste");
     driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();

@@ -5,17 +5,18 @@ import static org.testng.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
 
-
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 
-public class TestePaginaSoma {
+public class TestPaginaSoma {
   
 	 private WebDriver driver;
 	  private String baseUrl;
@@ -24,9 +25,9 @@ public class TestePaginaSoma {
 
 	  @BeforeClass(alwaysRun = true)
 	  public void setUp() throws Exception {
-		//System.setProperty("webdriver.gecko.driver", "C:\\Java\\Tools\\GeckoDriver-v0.10.0\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "C:\\Java\\Tools\\GeckoDriver-v0.10.0\\geckodriver.exe");
 	    driver = new FirefoxDriver();
-	    baseUrl = "http://localhost:8080/";
+	    baseUrl = "http://localhost:8080";
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 
@@ -38,6 +39,8 @@ public class TestePaginaSoma {
 	    driver.findElement(By.name("p2")).clear();
 	    driver.findElement(By.name("p2")).sendKeys("11");
 	    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+	  //http://stackoverflow.com/questions/18377384/how-to-wait-a-page-before-going-to-another-page-in-selenium-webdriver-using-java
+	    Thread.sleep(2000);
 	    assertEquals(driver.findElement(By.cssSelector("h1")).getText(), "O resultado foi 26");
 	  }
 	  
@@ -49,6 +52,8 @@ public class TestePaginaSoma {
 	    driver.findElement(By.name("p2")).clear();
 	    driver.findElement(By.name("p2")).sendKeys("10");
 	    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+	    //http://stackoverflow.com/questions/18377384/how-to-wait-a-page-before-going-to-another-page-in-selenium-webdriver-using-java
+	    Thread.sleep(2000);
 	    assertEquals(driver.findElement(By.cssSelector("h1")).getText(), "O resultado foi 20");
 	  }
 

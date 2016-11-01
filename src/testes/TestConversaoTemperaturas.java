@@ -1,49 +1,56 @@
 package testes;
 
-import static org.testng.Assert.*;
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.*;
+import static org.testng.Assert.*;
+import org.testng.annotations.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.*;
+
 
 public class TestConversaoTemperaturas {
-  private WebDriver driver;
-  private String baseUrl;
+    
+  private static WebDriver driver;
+  private static String baseUrl;
   private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
+  private static StringBuffer verificationErrors = new StringBuffer();
 
-  @BeforeClass(alwaysRun = true)
-  public void setUp() throws Exception {
+  @BeforeClass
+  public static void setUp() throws Exception {
+    System.setProperty("webdriver.gecko.driver","C:\\Java\\Tools\\GeckoDriver-v0.10.0\\geckodriver.exe");    
     driver = new FirefoxDriver();
-    baseUrl = "http://localhost:8080/";
+    baseUrl = "http://localhost:8080";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
-  public void testCelsiousToFahrenheit() throws Exception {
-    driver.get(baseUrl + "/ConversorTemperatura/");
-    new Select(driver.findElement(By.name("tipoConversao"))).selectByVisibleText("Celsious -> Fahrenheit");
-    driver.findElement(By.id("temp")).clear();
-    driver.findElement(By.id("temp")).sendKeys("100");
-    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
-    assertEquals(driver.findElement(By.cssSelector("h1")).getText(), "100.0 em Celsious equivale a 212.0 em Farenheit.");
+  public void testeConverteCelsiusParaFahrenheit() throws Exception {
+	  driver.get(baseUrl + "/ConversorTemperaturaSemana1/");
+	    new Select(driver.findElement(By.name("tipoConversao"))).selectByVisibleText("Celsious -> Fahrenheit");
+	    driver.findElement(By.id("temp")).clear();
+	    driver.findElement(By.id("temp")).sendKeys("100");
+	    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+	    assertEquals(driver.findElement(By.cssSelector("h1")).getText(), "100.0 em Celsious equivale a 212.0 em Farenheit.");
   }
   
   @Test
-  public void testFahrenheitToCelsious() throws Exception {
-    driver.get(baseUrl + "/ConversorTemperatura/");
-    new Select(driver.findElement(By.name("tipoConversao"))).selectByVisibleText("Fahrenheit -> Celsious");
-    driver.findElement(By.id("temp")).clear();
-    driver.findElement(By.id("temp")).sendKeys("212");
-    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
-    assertEquals(driver.findElement(By.cssSelector("h1")).getText(), "212.0 em Farenheit equivale a 100.0 em Celsious.");
+  public void testeConverteFahrenheitParaCelsius() throws Exception {
+	  driver.get(baseUrl + "/ConversorTemperaturaSemana1/");
+      new Select(driver.findElement(By.name("tipoConversao"))).selectByVisibleText("Fahrenheit -> Celsious");
+      driver.findElement(By.id("temp")).clear();
+      driver.findElement(By.id("temp")).sendKeys("212");
+      driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+      assertEquals(driver.findElement(By.cssSelector("h1")).getText(), "212.0 em Farenheit equivale a 100.0 em Celsious.");
   }
 
-  @AfterClass(alwaysRun = true)
-  public void tearDown() throws Exception {
+  @AfterClass
+  public static void tearDown() throws Exception {
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
@@ -82,5 +89,5 @@ public class TestConversaoTemperaturas {
     } finally {
       acceptNextAlert = true;
     }
-  }
+  }  
 }
