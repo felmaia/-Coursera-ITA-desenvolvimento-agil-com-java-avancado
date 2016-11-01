@@ -3,6 +3,7 @@
 ## Tecnologias estudadas:
  - Servlets
  - JDBC
+ - Arquitetura MVC
  - Generics
  - Reflection
  - Lambda (Java 8)
