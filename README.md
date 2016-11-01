@@ -62,7 +62,7 @@ Abaixo estão descritos os requisitos técnicos da aplicação:
 
 Seguem abaixo as tabelas que devem ser geradas no banco de dados Postgres para serem utilizadas pela aplicação.
 
-**_OBS_**: Dentro do projeto, encontra-se o arquivo _database.sql_ com a sintaxe para criação das tabelas no MySQL.
+**_OBS_**: Dentro do projeto, encontra-se o arquivo _/scripts/mysql-database.sql_ com a sintaxe para criação das tabelas no MySQL.
 
 A tabela usuario abaixo é a mesma utilizada no exercício da terceira semana. Ela armazena os usuários com seus respectivos pontos. A tabela topico armazena um tópico do fórum, e possui as informações do título, conteúdo e o login do usuário que o criou. A tabela comentario armazena os comentários feitos para um tópico, com o texto, o login do usuário que o fez e o id do tópico relacionado.
 
